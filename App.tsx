@@ -484,7 +484,7 @@ const App: React.FC = () => {
               }} className="space-y-8">
                 <div className="space-y-2">
                     <label className="block text-xs font-black uppercase tracking-[0.2em] ml-2">Secure Username</label>
-                    <input name="username" autoComplete="username" placeholder="coach_mentor / team_captain" className="w-full p-6 bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-2 border-slate-300 dark:border-slate-700 rounded-3xl outline-none focus:ring-4 focus:ring-teamColor/10 focus:border-teamColor transition-all font-black uppercase text-sm placeholder:text-slate-400" />
+                    <input name="username" autoComplete="username" placeholder="Username" className="w-full p-6 bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-2 border-slate-300 dark:border-slate-700 rounded-3xl outline-none focus:ring-4 focus:ring-teamColor/10 focus:border-teamColor transition-all font-black uppercase text-sm placeholder:text-slate-400" />
                 </div>
                 <div className="space-y-2">
                     <label className="block text-xs font-black uppercase tracking-[0.2em] ml-2">Access Key</label>

@@ -335,7 +335,7 @@ const Home: React.FC<HomeProps> = ({ state, onTaskClick, onClearNotification, on
           <p className="text-[10px] font-black text-teamColor uppercase tracking-[0.2em]">Operational Dashboard</p>
           <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tighter uppercase leading-tight">Welcome, {user?.name.split(' ')[0]}</h1>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-1 mt-2">
-              <p className="text-slate-400 dark:text-slate-500 font-bold uppercase tracking-widest text-xs">Team {settings.teamNumber} • {settings.teamName}</p>
+              <p className="text-slate-500 dark:text-slate-400 font-bold tracking-wide text-xs">{settings.teamName} — {settings.teamProgram} {settings.teamNumber}</p>
               <div className="h-4 w-[1px] bg-slate-200 dark:bg-slate-700"></div>
               <div className="flex items-center gap-2">
                 <TrendingUp size={14} className="text-teamColor" />
