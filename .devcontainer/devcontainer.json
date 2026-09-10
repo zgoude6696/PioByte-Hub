@@ -1,0 +1,19 @@
+{
+  "name": "Cardinal's Nest / PioByte-Hub Demo",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "remoteUser": "node",
+  "postCreateCommand": "npm ci",
+  "forwardPorts": [5000, 3001],
+  "portsAttributes": {
+    "5000": {
+      "label": "Frontend — share this demo port",
+      "protocol": "http",
+      "onAutoForward": "notify"
+    },
+    "3001": {
+      "label": "Express API — keep private",
+      "protocol": "http",
+      "onAutoForward": "silent"
+    }
+  }
+}
