@@ -463,7 +463,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({ currentUserRoles, currentUs
                 onChange={e => setForm(f => ({ ...f, teamNumber: parseInt(e.target.value) || 0 }))}
                 className="w-full px-3 py-2 text-sm font-bold border border-slate-200 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-1"
                 style={{ '--tw-ring-color': form.themeColor } as React.CSSProperties & Record<string, string>}
-                placeholder="10991"
+                placeholder="6696"
               />
             </div>
             <div>
@@ -473,7 +473,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({ currentUserRoles, currentUs
                 value={form.teamName}
                 onChange={e => setForm(f => ({ ...f, teamName: e.target.value }))}
                 className="w-full px-3 py-2 text-sm font-bold border border-slate-200 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2"
-                placeholder="piobyte"
+                placeholder="Cardinal Dynamics"
               />
             </div>
           </div>

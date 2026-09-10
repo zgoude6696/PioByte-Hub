@@ -13,7 +13,7 @@ const TeamLogo: React.FC<TeamLogoProps> = ({ className, teamNumber: teamNumberPr
   const logoUrl = logoUrlProp !== undefined ? logoUrlProp : settings.logoUrl;
 
   if (logoUrl) {
-    return <img src={logoUrl} alt="Team logo" className={className} style={{ objectFit: 'contain' }} />;
+    return <img src={logoUrl} alt={`${settings.teamName} logo`} className={className} style={{ objectFit: 'contain' }} />;
   }
 
   return (

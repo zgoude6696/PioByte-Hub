@@ -1,3 +1,4 @@
+import { APP_NAME } from '../shared/branding';
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, Kanban, Users, LogOut, Home as HomeIcon, Cloud, CloudOff, Menu, X, Clock, TrendingUp, Activity, AlertTriangle, Flag, Crosshair, Moon, Sun, Bell, BellRing, BellOff, Trash2, Plus, ShieldCheck, CalendarDays, BookOpen, Settings, DollarSign } from 'lucide-react';
@@ -162,11 +163,11 @@ const Layout: React.FC<LayoutProps> = ({ children, user, notificationsCount, onL
         <div className="px-2 py-2 md:px-3 md:py-3 lg:px-3 lg:py-3 flex items-center justify-between border-b border-white/10 flex-shrink-0">
           <div className={`flex items-center gap-2.5 overflow-hidden transition-all duration-300 ${collapsed ? 'w-0 opacity-0' : 'w-full opacity-100'}`}>
             <div className="flex-shrink-0" style={{ color: settings.themeColor }}>
-              <TeamLogo className="w-7 h-7 rounded" />
+              <TeamLogo className="w-9 h-9 rounded bg-black" />
             </div>
             <div className="flex-1 min-w-0">
-              <h1 className="font-black text-sm leading-tight tracking-tighter uppercase truncate">{settings.teamName} Hub</h1>
-              <p className="text-[9px] font-bold tracking-widest uppercase" style={{ color: settings.themeColor }}>Team {settings.teamNumber}</p>
+              <h1 className="font-black text-sm leading-tight tracking-tight">{APP_NAME}</h1>
+              <p className="text-[10px] font-bold tracking-wide" style={{ color: settings.themeColor }}>{settings.teamProgram} Team {settings.teamNumber}</p>
             </div>
           </div>
           
@@ -287,9 +288,10 @@ const Layout: React.FC<LayoutProps> = ({ children, user, notificationsCount, onL
               <div className="md:hidden text-teamColor">
                 <TeamLogo className="w-7 h-7" />
               </div>
-              <h2 className="text-sm md:text-lg font-black text-slate-900 dark:text-white tracking-tight uppercase">
-                <span className="hidden sm:inline">{settings.teamName.toUpperCase()} </span>HUB
-              </h2>
+              <div>
+                <h2 className="text-sm md:text-lg font-black text-slate-900 dark:text-white tracking-tight">{APP_NAME}</h2>
+                <p className="text-[10px] font-bold text-slate-500">{settings.teamProgram} Team {settings.teamNumber}</p>
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2 md:gap-3">

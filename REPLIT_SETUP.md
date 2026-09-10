@@ -1,6 +1,6 @@
 # Replit Setup & Deploy Handoff
 
-This is what Replit (or a person) needs to do to get **PioByte Hub** ready to run after pulling this code. Follow it top to bottom.
+This is what Replit (or a person) needs to do to get **Cardinal’s Nest** ready to run after pulling this code. Follow it top to bottom.
 
 Stack: React 19 + Vite + Tailwind (front end) · Express 5 + Drizzle ORM + PostgreSQL (back end) · runs on `tsx` (no separate server build). Deploy target: Replit **Autoscale**.
 

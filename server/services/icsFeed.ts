@@ -1,3 +1,4 @@
+import { APP_NAME } from '../../shared/branding';
 import ical, { ICalEventRepeatingFreq, ICalWeekday } from "ical-generator";
 import { getVtimezoneComponent } from "@touch4it/ical-timezones";
 import type { CalendarEvent } from "../../shared/schema";
@@ -78,7 +79,7 @@ export function buildCalendarFeed(events: CalendarEvent[], teamName: string, tea
     // a bare, unresolvable label — without it, a weekly recurring event's
     // wall-clock time would drift by an hour across the DST boundary.
     timezone: { name: teamTimezone, generator: getVtimezoneComponent },
-    prodId: { company: "PioByte", product: "PioByte Hub Calendar Feed" },
+    prodId: { company: teamName, product: `${APP_NAME} Calendar Feed` },
   });
 
   const parents = events.filter((e) => !e.parentEventId);

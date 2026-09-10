@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { DEFAULT_TEAM_IDENTITY } from '../../shared/branding';
 import { Router } from "express";
 import { PNG } from "pngjs";
 import { storage, DepartmentChangeError } from "../storage";
@@ -154,10 +156,10 @@ router.post("/settings/reset", async (req, res) => {
     );
     const { settings, propagation } = await storage.updateTeamSettingsWithDepartmentChanges(
       {
-        teamNumber: 10991,
-        teamName: 'piobyte',
-        themeColor: '#dc2626',
-        logoUrl: null,
+        teamNumber: DEFAULT_TEAM_IDENTITY.teamNumber,
+        teamName: DEFAULT_TEAM_IDENTITY.teamName,
+        themeColor: DEFAULT_TEAM_IDENTITY.themeColor,
+        logoUrl: DEFAULT_TEAM_IDENTITY.logoUrl,
         teamProgram: 'FRC',
         timezone: 'America/Los_Angeles',
         departments: DEFAULT_DEPARTMENTS,
@@ -187,7 +189,7 @@ router.get("/settings/pwa-icon.png", async (req, res) => {
     const settings = await storage.getTeamSettings();
     const themeHex = (settings.themeColor as string) || '#dc2626';
     const logoUrl  = settings.logoUrl as string | null;
-    const teamNum  = (settings.teamNumber as number) || 10991;
+    const teamNum  = (settings.teamNumber as number) || DEFAULT_TEAM_IDENTITY.teamNumber;
     const SIZE = 512;
     const c = hexToRgb(themeHex);
 
@@ -196,11 +198,13 @@ router.get("/settings/pwa-icon.png", async (req, res) => {
     fillRect(dst, 0, 0, SIZE, SIZE, c.r, c.g, c.b);
 
     if (logoUrl) {
-      // White inset (the "border" effect)
-      fillRect(dst, 36, 36, SIZE - 72, SIZE - 72, 255, 255, 255);
+      // The official cardinal artwork sits on black; uploaded logos retain their white inset.
+      const inset = logoUrl === DEFAULT_TEAM_IDENTITY.logoUrl ? 0 : 255;
+      fillRect(dst, 36, 36, SIZE - 72, SIZE - 72, inset, inset, inset);
       // Decode stored base64 logo and composite centred
-      const base64 = logoUrl.replace(/^data:image\/\w+;base64,/, '');
-      const logoBuf = Buffer.from(base64, 'base64');
+      const logoBuf = logoUrl === DEFAULT_TEAM_IDENTITY.logoUrl
+        ? readFileSync(new URL('../../public/assets/cardinal-dynamics.png', import.meta.url))
+        : Buffer.from(logoUrl.replace(/^data:image\/\w+;base64,/, ''), 'base64');
       const logoPng = PNG.sync.read(logoBuf);
       compositeCenter(dst, logoPng, 64, 64, SIZE - 128, SIZE - 128);
     } else {
@@ -215,7 +219,7 @@ router.get("/settings/pwa-icon.png", async (req, res) => {
     res.send(out);
   } catch (error) {
     console.error("Error generating PWA PNG icon:", error);
-    res.redirect('/icon-192.png');
+    res.redirect(DEFAULT_TEAM_IDENTITY.logoUrl);
   }
 });
 
@@ -223,14 +227,19 @@ router.get("/settings/pwa-icon.svg", async (req, res) => {
   try {
     const settings = await storage.getTeamSettings();
     const color = (settings.themeColor as string) || '#dc2626';
-    const logo = settings.logoUrl as string | null;
-    const teamNumber = (settings.teamNumber as number) || 10991;
+    const configuredLogo = settings.logoUrl as string | null;
+    // Embed the bundled PNG so SVG favicons work without external subresource requests.
+    const logo = configuredLogo === DEFAULT_TEAM_IDENTITY.logoUrl
+      ? `data:image/png;base64,${readFileSync(new URL('../../public/assets/cardinal-dynamics.png', import.meta.url)).toString('base64')}`
+      : configuredLogo;
+    const insetColor = configuredLogo === DEFAULT_TEAM_IDENTITY.logoUrl ? '#000000' : '#ffffff';
+    const teamNumber = (settings.teamNumber as number) || DEFAULT_TEAM_IDENTITY.teamNumber;
 
     let innerContent: string;
     if (logo) {
       // Logo image centered inside a white padded inset (border = theme color background)
       innerContent = `
-  <rect x="36" y="36" width="440" height="440" rx="56" fill="white"/>
+  <rect x="36" y="36" width="440" height="440" rx="56" fill="${insetColor}"/>
   <image x="64" y="64" width="384" height="384" href="${logo}" preserveAspectRatio="xMidYMid meet" clip-path="url(#imgClip)"/>`;
     } else {
       // Fallback: team number text on colored background

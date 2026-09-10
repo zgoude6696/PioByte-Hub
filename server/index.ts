@@ -1,3 +1,4 @@
+import { APP_NAME, DEFAULT_TEAM_IDENTITY } from '../shared/branding';
 import express from "express";
 import cors from "cors";
 import compression from "compression";
@@ -112,23 +113,23 @@ if (isProduction && !SESSION_SECRET) {
 app.get("/manifest.json", async (req, res) => {
   try {
     const settings = await storage.getTeamSettings();
-    const name = (settings.teamName as string) || 'PioByte Hub';
+    const name = APP_NAME;
     const color = (settings.themeColor as string) || '#dc2626';
     res.setHeader('Content-Type', 'application/manifest+json');
     res.setHeader('Cache-Control', 'no-cache');
     res.json({
       name,
       short_name: name,
-      description: `FRC Team ${settings.teamNumber} Project Management & Scouting`,
+      description: `${settings.teamName} — ${settings.teamProgram} ${settings.teamNumber} · Project Management & Scouting`,
       start_url: "/",
       display: "standalone",
-      background_color: "#0f172a",
+      background_color: "#0a0a0a",
       theme_color: color,
       orientation: "any",
       icons: [
         { src: "/api/settings/pwa-icon.png", sizes: "512x512", type: "image/png", purpose: "any maskable" },
         { src: "/api/settings/pwa-icon.svg", sizes: "any", type: "image/svg+xml" },
-        { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { src: DEFAULT_TEAM_IDENTITY.logoUrl, sizes: "2048x2048", type: "image/png" },
       ],
     });
   } catch {

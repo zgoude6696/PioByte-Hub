@@ -1,3 +1,4 @@
+import { APP_NAME } from '../../shared/branding';
 import { Router } from "express";
 import { storage } from "../storage";
 import { tbaFetch, TBA_KEY, nexusFetch, toaFetch, TOA_KEY, hasNexusKey } from "../helpers";
@@ -270,7 +271,7 @@ async function sendScoutCsv(eventId: number, res: any) {
   const matchFields = await resolveTemplateFields(event, 'match');
 
   const rows: string[] = [];
-  rows.push(`PioByte Hub Scout Export — ${csvCell(event.name)}`);
+  rows.push(`${APP_NAME} Scout Export — ${csvCell(event.name)}`);
   rows.push(`Exported,${new Date().toISOString()}`);
   rows.push('');
 

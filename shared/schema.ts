@@ -1,3 +1,4 @@
+import { DEFAULT_TEAM_IDENTITY } from './branding';
 import { pgTable, serial, text, integer, boolean, timestamp, jsonb, uniqueIndex, type AnyPgColumn } from "drizzle-orm/pg-core";
 import { sql, relations } from "drizzle-orm";
 import type { TemplateField } from "./scoutingTemplates";
@@ -605,10 +606,10 @@ export type InsertResource = typeof resources.$inferInsert;
 
 export const teamSettings = pgTable("team_settings", {
   id: serial("id").primaryKey(),
-  teamNumber: integer("team_number").notNull().default(10991),
-  teamName: text("team_name").notNull().default("piobyte"),
-  themeColor: text("theme_color").notNull().default("#dc2626"),
-  logoUrl: text("logo_url"),
+  teamNumber: integer("team_number").notNull().default(DEFAULT_TEAM_IDENTITY.teamNumber),
+  teamName: text("team_name").notNull().default(DEFAULT_TEAM_IDENTITY.teamName),
+  themeColor: text("theme_color").notNull().default(DEFAULT_TEAM_IDENTITY.themeColor),
+  logoUrl: text("logo_url").default(DEFAULT_TEAM_IDENTITY.logoUrl),
   departments: jsonb("departments").$type<{ name: string; color: string }[]>().notNull().default([
     { name: 'Mechanical', color: '#f97316' },
     { name: 'Software', color: '#3b82f6' },

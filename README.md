@@ -1,6 +1,6 @@
-# PioByte Hub
+# Cardinal’s Nest
 
-FRC (FIRST Robotics Competition) team management hub — tasks, scouting, scheduling, and team management.
+Cardinal Dynamics — FRC 6696 team management hub — tasks, scouting, scheduling, and team management.
 
 Stack: React 19 + Vite + Tailwind (front end) · Express 5 + Drizzle ORM + PostgreSQL (back end).
 

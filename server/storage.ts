@@ -1,3 +1,4 @@
+import { DEFAULT_TEAM_IDENTITY } from '../shared/branding';
 import crypto from "crypto";
 import { db } from "./db";
 import { hashPassword } from "./security";
@@ -2846,10 +2847,10 @@ export class DatabaseStorage implements IStorage {
 
   private defaultTeamSettings(): InsertTeamSettings {
     return {
-      teamNumber: 10991,
-      teamName: 'piobyte',
-      themeColor: '#dc2626',
-      logoUrl: null,
+      teamNumber: DEFAULT_TEAM_IDENTITY.teamNumber,
+      teamName: DEFAULT_TEAM_IDENTITY.teamName,
+      themeColor: DEFAULT_TEAM_IDENTITY.themeColor,
+      logoUrl: DEFAULT_TEAM_IDENTITY.logoUrl,
       departments: [
         { name: 'Mechanical', color: '#f97316' },
         { name: 'Software', color: '#3b82f6' },

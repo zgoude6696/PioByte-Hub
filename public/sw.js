@@ -1,4 +1,4 @@
-const CACHE_NAME = 'piobyte-hub-v4';
+const CACHE_NAME = 'cardinals-nest-v5';
 
 const PRECACHE_URLS = [
   '/',
@@ -28,11 +28,11 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('push', (event) => {
   let data = {};
   try { data = event.data ? event.data.json() : {}; } catch (e) { data = { body: event.data && event.data.text() }; }
-  const title = data.title || 'PioByte Hub';
+  const title = data.title || 'Cardinal’s Nest';
   const options = {
     body: data.body || '',
-    icon: '/icon-192.png',
-    badge: '/icon-192.png',
+    icon: '/api/settings/pwa-icon.png',
+    badge: '/api/settings/pwa-icon.png',
     tag: data.tag || undefined,
     data: { url: data.url || '/' },
   };

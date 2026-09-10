@@ -1,3 +1,4 @@
+import { APP_NAME } from './shared/branding';
 import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppState, User, Project, Task, Role, Department, TaskStatus, Priority, Notification, Announcement, TimeEntry } from './types';
@@ -54,7 +55,7 @@ const App: React.FC = () => {
   const [activeTaskModal, setActiveTaskModal] = useState<Task | null>(null);
   const [isCloudSynced, setIsCloudSynced] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('piobyte_dark_mode') === 'true');
+  const [darkMode, setDarkMode] = useState(() => localStorage.getItem('piobyte_dark_mode') !== 'false');
   const [teamSettings, setTeamSettings] = useState<TeamSettingsData>(DEFAULT_TEAM_SETTINGS);
   const [globalAlerts, setGlobalAlerts] = useState<any[]>([]);
   const [annToast, setAnnToast] = useState<{ text: string; scope: string; dept?: string; authorName?: string } | null>(null);
@@ -236,8 +237,8 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    document.title = `${teamSettings.teamName} Hub`;
-  }, [teamSettings.teamName]);
+    document.title = `${APP_NAME} — ${teamSettings.teamProgram} Team ${teamSettings.teamNumber}`;
+  }, [teamSettings.teamProgram, teamSettings.teamNumber]);
 
   useEffect(() => {
     const hex = teamSettings.themeColor.replace('#', '');
@@ -293,7 +294,7 @@ const App: React.FC = () => {
     try {
       await api.seed();
       await fetchData();
-      alert("Database seeded successfully! Log in as 'coach_mentor' or 'captain10991' with password 'changeme'.");
+      alert("Database seeded successfully! Log in as 'coach_mentor' or 'team_captain' with password 'changeme'.");
     } catch (e) {
       console.error("Seeding failed", e);
       alert("Seeding failed. Please try again.");
@@ -447,13 +448,13 @@ const App: React.FC = () => {
     return (
       <TeamSettingsContext.Provider value={{ settings: teamSettings, setSettings: setTeamSettings }}>
       <div className="min-h-screen bg-black flex items-center justify-center p-6">
-        <div className="bg-white dark:bg-slate-900 rounded-[40px] p-16 w-full max-w-xl shadow-2xl animate-in zoom-in duration-500">
+        <div className="bg-white dark:bg-slate-900 rounded-[40px] p-8 sm:p-16 w-full max-w-xl shadow-2xl animate-in zoom-in duration-500">
           <div className="text-center mb-12">
-            <div className="w-32 h-32 mx-auto mb-8 shadow-2xl shadow-teamColor/40 transform rotate-3">
+            <div className="w-32 h-32 mx-auto mb-8 rounded-2xl bg-black">
                 <TeamLogo className="w-full h-full text-teamColor" />
             </div>
-            <h1 className="text-5xl font-black text-slate-900 tracking-tighter uppercase mb-3 leading-tight">{teamSettings.teamName} HUB</h1>
-            <p className="text-slate-400 font-black text-sm uppercase tracking-widest">TEAM {teamSettings.teamNumber} ROBOTICS</p>
+            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tighter mb-3 leading-tight">{APP_NAME}</h1>
+            <p className="text-slate-400 font-black text-sm uppercase tracking-widest">{teamSettings.teamProgram} Team {teamSettings.teamNumber}</p>
           </div>
 
           {state.users.length === 0 && isCloudSynced ? (
@@ -482,12 +483,12 @@ const App: React.FC = () => {
                 handleLogin(username, password);
               }} className="space-y-8">
                 <div className="space-y-2">
-                    <label className="block text-xs font-black uppercase tracking-[0.2em] ml-2" style={{ color: '#1e293b' }}>Secure Username</label>
-                    <input name="username" autoComplete="username" placeholder="coach_mentor / captain10991" className="w-full p-6 border-2 border-slate-300 rounded-3xl outline-none focus:ring-4 focus:ring-teamColor/10 focus:border-teamColor transition-all font-black uppercase text-sm placeholder:text-slate-400" style={{ backgroundColor: '#ffffff', color: '#0f172a' }} />
+                    <label className="block text-xs font-black uppercase tracking-[0.2em] ml-2">Secure Username</label>
+                    <input name="username" autoComplete="username" placeholder="coach_mentor / team_captain" className="w-full p-6 bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-2 border-slate-300 dark:border-slate-700 rounded-3xl outline-none focus:ring-4 focus:ring-teamColor/10 focus:border-teamColor transition-all font-black uppercase text-sm placeholder:text-slate-400" />
                 </div>
                 <div className="space-y-2">
-                    <label className="block text-xs font-black uppercase tracking-[0.2em] ml-2" style={{ color: '#1e293b' }}>Access Key</label>
-                    <input type="password" name="password" autoComplete="current-password" placeholder="••••••••" className="w-full p-6 border-2 border-slate-300 rounded-3xl outline-none focus:ring-4 focus:ring-teamColor/10 focus:border-teamColor transition-all font-black text-sm placeholder:text-slate-400" style={{ backgroundColor: '#ffffff', color: '#0f172a' }} />
+                    <label className="block text-xs font-black uppercase tracking-[0.2em] ml-2">Access Key</label>
+                    <input type="password" name="password" autoComplete="current-password" placeholder="••••••••" className="w-full p-6 bg-white dark:bg-slate-950 text-slate-900 dark:text-white border-2 border-slate-300 dark:border-slate-700 rounded-3xl outline-none focus:ring-4 focus:ring-teamColor/10 focus:border-teamColor transition-all font-black text-sm placeholder:text-slate-400" />
                 </div>
                 <button type="submit" className="w-full py-6 bg-teamColor text-white font-black rounded-3xl hover:opacity-90 shadow-2xl shadow-teamColor/20 transition-all transform active:scale-95 text-xl tracking-widest uppercase">
                     Initialize System

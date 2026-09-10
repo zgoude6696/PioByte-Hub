@@ -21,7 +21,7 @@ const STEPS: TutorialStep[] = [
     label: 'Welcome',
     title: "Coach view — full access unlocked",
     body:
-      "As a Coach you have access to every feature in PIO-BYTES Hub. This quick tour covers the tools you'll rely on most. Dismiss any step with the X, or skip the whole tour — you can replay it anytime from the Help button in the sidebar.",
+      "As a Coach you have access to every feature in Cardinal’s Nest. This quick tour covers the tools you'll rely on most. Dismiss any step with the X, or skip the whole tour — you can replay it anytime from the Help button in the sidebar.",
   },
   {
     icon: <LayoutDashboard size={28} className="text-blue-500" />,

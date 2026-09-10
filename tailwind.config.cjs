@@ -28,6 +28,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        slate: require('tailwindcss/colors').neutral,
         teamColor: ({ opacityVariable, opacityValue }) => {
           if (opacityValue !== undefined) {
             return `rgba(var(--team-color-rgb), ${opacityValue})`;

@@ -1,5 +1,5 @@
-# PIO-BYTES Hub — Welcome Guide
-### FRC Team 10991 | Project & Scouting Management System
+# Cardinal’s Nest — Welcome Guide
+### FRC Team 6696 | Project & Scouting Management System
 
 ---
 
@@ -11,7 +11,7 @@
 
 ## Table of Contents
 
-1. [What Is PIO-BYTES Hub?](#1-what-is-pio-bytes-hub)
+1. [What Is Cardinal’s Nest?](#1-what-is-cardinals-nest)
 2. [Logging In for the First Time](#2-logging-in-for-the-first-time)
 3. [Understanding Roles](#3-understanding-roles)
 4. [Pages at a Glance](#4-pages-at-a-glance)
@@ -36,9 +36,9 @@
 
 ---
 
-## 1. What Is PIO-BYTES Hub?
+## 1. What Is Cardinal’s Nest?
 
-PIO-BYTES Hub is Team 10991's all-in-one operations platform. It replaces scattered spreadsheets, group chats, and paper sign-in sheets with a single web app that every team member can access from any device.
+Cardinal’s Nest is Team 6696's all-in-one operations platform. It replaces scattered spreadsheets, group chats, and paper sign-in sheets with a single web app that every team member can access from any device.
 
 **What it does:**
 
@@ -55,7 +55,7 @@ PIO-BYTES Hub is Team 10991's all-in-one operations platform. It replaces scatte
 
 ## 2. Logging In for the First Time
 
-[SCREENSHOT: Full login screen — show the PIO-BYTES Hub logo at top center, the "Secure Username" and "Access Key" input fields, and the red "Initialize System" button. Make sure the page background is black and the card has the team logo.]
+[SCREENSHOT: Full login screen — show the Cardinal’s Nest logo at top center, the "Secure Username" and "Access Key" input fields, and the red "Initialize System" button. Make sure the page background is black and the card has the team logo.]
 
 1. Open the app URL in your browser.
 2. Enter the **username** your coach gave you.
@@ -94,7 +94,7 @@ Every user has one or more roles. Your role determines what you can see and do.
 
 Navigate using the sidebar on the left (desktop) or the bottom bar (mobile).
 
-[SCREENSHOT: Full sidebar open — show all navigation icons and labels: Home, War Room, Boards, Time, Scout, Safety, Team, Calendar, Resources. Capture in dark mode if the team uses it. Also show the PIO-BYTES logo at the top of the sidebar and the dark mode toggle icon at the bottom.]
+[SCREENSHOT: Full sidebar open — show all navigation icons and labels: Home, War Room, Boards, Time, Scout, Safety, Team, Calendar, Resources. Capture in dark mode if the team uses it. Also show the Cardinal Dynamics logo at the top of the sidebar and the dark mode toggle icon at the bottom.]
 
 | Page | Icon | Summary |
 |---|---|---|
@@ -276,7 +276,7 @@ Manage scouting events. Create an event (competition or scrimmage), enter a Nexu
 #### Robots (Pit Scouting) Tab
 Search all scouted robots. Shows specs, capabilities, and ratings. Use **Import from TBA** to pull in all teams registered for an event automatically.
 
-[SCREENSHOT: Robot Dashboard — show the search bar at top, and a grid of robot cards below. Each card should show a team number, team name, robot photo (if scouted), and a row of capability badges (e.g., Can Climb, Auto Scorer). Highlight one card with the red team border for Team 10991.]
+[SCREENSHOT: Robot Dashboard — show the search bar at top, and a grid of robot cards below. Each card should show a team number, team name, robot photo (if scouted), and a row of capability badges (e.g., Can Climb, Auto Scorer). Highlight one card with the red team border for Team 6696.]
 
 #### Schedule Grid
 Shows all qualification matches for the selected event. Your assigned scouts can claim matches, and scouted team numbers appear in the cells. The "Scouts on Duty" row at the top counts how many scouts are active per match.
@@ -287,7 +287,7 @@ Shows all qualification matches for the selected event. Your assigned scouts can
 Designed for a 4K or large monitor. Shows two sub-tabs:
 
 - **Live:** Two-column grid of upcoming matches (Nexus schedule) on the left, event schedule on the right. Match statuses update in real time.
-- **Rankings:** Full TBA event standings with Team 10991 highlighted, plus a scouted robot leaderboard sorted by overall rating.
+- **Rankings:** Full TBA event standings with Team 6696 highlighted, plus a scouted robot leaderboard sorted by overall rating.
 
 [SCREENSHOT: Pit Display — Live tab — show the two-column layout with the Nexus upcoming matches list on the left (showing team numbers, match labels, and status badges like "Queuing", "On Field", "Done") and the full schedule on the right. The screen should look large and clean, designed for 4K projection.]
 
@@ -342,7 +342,7 @@ Inside a task modal, use the "Required Certification" dropdown in the right pane
 Click any date on the calendar → fill in the event form. Enable "Repeats Weekly" for recurring shop sessions and set an end date.
 
 **TBA Import:**
-Click the TBA button at the top → a checklist of Team 10991's 2026 TBA events appears → select which ones to import → click Import. Duplicate events (same title + date) are skipped automatically.
+Click the TBA button at the top → a checklist of Team 6696's 2026 TBA events appears → select which ones to import → click Import. Duplicate events (same title + date) are skipped automatically.
 
 **Competition Attending toggle:**
 Click a competition event → Edit → toggle "Attending." Non-attending events show in slate with a dashed border and a "Not Attending" badge so the team knows you're not going.
@@ -368,7 +368,7 @@ The Resources page is a curated library of FRC-relevant links maintained by the 
 - FRC Game Manual (current season)
 - REV Robotics documentation
 - WPILib documentation
-- Team 10991 social media channels
+- Team 6696 social media channels
 
 ---
 
@@ -454,9 +454,9 @@ A: The pit map loads from Nexus and requires the event's Nexus key to be set. As
 A: It may be marked "Dept Only," meaning it only shows on its department's board. Dept-only tasks show a blue "Dept Only" badge. Ask the task creator or a coach/captain if it needs to be made visible on the project board.
 
 **Q: How do I add our competition to the calendar?**  
-A: Coaches can click the TBA button on the Calendar page → select events from a checklist of Team 10991's registered 2026 TBA events → click Import. The system skips duplicates automatically.
+A: Coaches can click the TBA button on the Calendar page → select events from a checklist of Team 6696's registered 2026 TBA events → click Import. The system skips duplicates automatically.
 
 ---
 
-*PIO-BYTES Hub — FRC Team 10991 · Built for the 2026 season*  
+*Cardinal’s Nest — FRC Team 6696 · Built for the 2026 season*
 *For technical issues, contact your team's software lead or coach.*

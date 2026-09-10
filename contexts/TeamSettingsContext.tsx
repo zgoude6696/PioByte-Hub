@@ -1,3 +1,4 @@
+import { DEFAULT_TEAM_IDENTITY } from '../shared/branding';
 import React, { createContext, useContext } from 'react';
 
 export interface DepartmentSetting {
@@ -26,10 +27,10 @@ export interface TeamSettingsData {
 
 export const DEFAULT_TEAM_SETTINGS: TeamSettingsData = {
   id: 1,
-  teamNumber: 10991,
-  teamName: 'piobyte',
-  themeColor: '#dc2626',
-  logoUrl: null,
+  teamNumber: DEFAULT_TEAM_IDENTITY.teamNumber,
+  teamName: DEFAULT_TEAM_IDENTITY.teamName,
+  themeColor: DEFAULT_TEAM_IDENTITY.themeColor,
+  logoUrl: DEFAULT_TEAM_IDENTITY.logoUrl,
   teamProgram: 'FRC',
   timezone: 'America/Los_Angeles',
   departments: [
